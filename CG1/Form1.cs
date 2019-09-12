@@ -14,23 +14,32 @@ namespace CG1
 
         private void Draw()
         {
+            var count = 10;
             var bmp = new Bitmap(Picture.Width, Picture.Height);
             var graph = Graphics.FromImage(bmp);
-            var rectangle = new Rectangle(new Point(50, 50), new Size(100, 100));
+            var rectangle = new Rectangle(new Point(500, 500), new Size(700, 700));
             graph.DrawRectangle(new Pen(Color.Red), rectangle);
-            graph.DrawFigure(rectangle);
-            rectangle.Size = new Size(50,50);
-            graph.DrawFigure(rectangle);
-            ////for (var i = 0; i < 10; i++)
-            ////{
-            ////    var rectangle2 = new Rectangle(new Point(i * 20, i * 20), new Size(50, 50));
-            ////    graph.DrawFigure(rectangle2);
+            graph.DrawFigure(GetCenter(rectangle));
+            var fi = 360 / count;
 
-            ////}
+            var r = rectangle.Size.Width/2;
+            for (var i = 0; i < count; i++)
+            {
+                var x = (int)(r * Math.Cos(i * fi)/2 + rectangle.Location.X);
+                var y = (int)(r * Math.Sin(i * fi)/2 + rectangle.Location.X);
+                var rectangle2 = new Rectangle(new Point(x, y),
+                    new Size(rectangle.Size.Width / 2, rectangle.Size.Height / 2));
+                graph.DrawFigure(GetCenter(rectangle2));
+            }
 
             Picture.Image = bmp;
         }
 
+        private Rectangle GetCenter(Rectangle rect)
+        {
+            rect.Location = new Point(rect.Location.X - rect.Size.Width / 2, rect.Location.Y - rect.Size.Height / 2);
+            return rect;
+        }
         
     }
 
