@@ -34,11 +34,11 @@
             // 
             // Picture
             // 
-            this.Picture.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.Picture.BackColor = System.Drawing.SystemColors.ControlText;
             this.Picture.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Picture.Location = new System.Drawing.Point(0, 0);
             this.Picture.Name = "Picture";
-            this.Picture.Size = new System.Drawing.Size(1600, 1200);
+            this.Picture.Size = new System.Drawing.Size(1600, 1181);
             this.Picture.TabIndex = 0;
             this.Picture.TabStop = false;
             // 
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1600, 1200);
+            this.ClientSize = new System.Drawing.Size(1600, 1181);
             this.Controls.Add(this.Picture);
             this.Name = "Form1";
             this.Text = "Form1";
